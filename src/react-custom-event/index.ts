@@ -9,14 +9,14 @@ interface eventListener<T extends anyEventCreator> {
   (event: ReturnType<T>["event"]): void;
 }
 
-function addEventListener<EC extends anyEventCreator>(
+export function addEventListener<EC extends anyEventCreator>(
   eventCreator: EC,
   listener: eventListener<EC>
 ) {
   document.addEventListener(eventCreator.type, listener as EventListener);
 }
 
-function removeEventListener<EC extends anyEventCreator>(
+export function removeEventListener<EC extends anyEventCreator>(
   eventCreator: EC,
   listener: eventListener<EC>
 ) {
